@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "Event")
 @NamedQueries({
-
+        @NamedQuery(name = "Event.findAll", query = "select e from Event e order by e.title")
 })
 public class Event implements Serializable {
 
@@ -26,10 +26,8 @@ public class Event implements Serializable {
     @Column(name = "organiser")
     private String organiser;
 
-    @SuppressWarnings("JpaModelReferenceInspection")
-    @OneToMany(mappedBy = "Event", cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<Event> events = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "events")
+    private List<Reservation> reservationList = new ArrayList<>();
 
     public int getEventId() {
         return eventId;
@@ -63,11 +61,11 @@ public class Event implements Serializable {
         this.organiser = organiser;
     }
 
-    public List<Event> getEvents() {
-        return events;
+    public List<Reservation> getReservationList() {
+        return reservationList;
     }
 
-    public void setEvents(List<Event> events) {
-        this.events = events;
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
     }
 }

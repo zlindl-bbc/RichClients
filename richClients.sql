@@ -12,6 +12,9 @@ CREATE TABLE `event` (
   PRIMARY KEY (eventId)
 );
 
+INSERT INTO `event` (`eventId`, `title`, `description`, `organiser`) VALUES
+(1, 'TestTitle', 'ThisIsTheDescription', 'TestOrganiser');
+
 CREATE TABLE `reservation` (
   `reservationId` int(11) NOT NULL,
   `eventId` int(11) NOT NULL,

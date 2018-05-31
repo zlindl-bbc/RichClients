@@ -23,33 +23,6 @@ public class Room implements Serializable {
     @Column(name = "description")
     private String description;
 
-
-    @SuppressWarnings("JpaModelReferenceInspection")
-    @OneToMany(mappedBy = "Room", cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<Reservation> rooms = new ArrayList<>();
-
-    public int getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "rooms")
+    private List<Reservation> reservationList = new ArrayList<>();
 }

@@ -18,11 +18,11 @@ public class Reservation implements Serializable {
 
     @ManyToOne(optional = false, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "eventId")
-    private Event eventId;
+    private Event events;
 
     @ManyToOne(optional = false, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "roomId")
-    private Room roomId;
+    private Room rooms;
 
     @Column(name = "start")
     private Date start;
@@ -38,20 +38,20 @@ public class Reservation implements Serializable {
         this.reservationId = reservationId;
     }
 
-    public Event getEventId() {
-        return eventId;
+    public Event getEvents() {
+        return events;
     }
 
-    public void setEventId(Event eventId) {
-        this.eventId = eventId;
+    public void setEvents(Event events) {
+        this.events = events;
     }
 
-    public Room getRoomId() {
-        return roomId;
+    public Room getRooms() {
+        return rooms;
     }
 
-    public void setRoomId(Room roomId) {
-        this.roomId = roomId;
+    public void setRooms(Room rooms) {
+        this.rooms = rooms;
     }
 
     public Date getStart() {

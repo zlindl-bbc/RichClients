@@ -8,6 +8,8 @@
 
 		<jta-data-source>RichClients</jta-data-source>
 		<class>ch.bzz.m426.jpa.Room</class>
+		<class>ch.bzz.m426.jpa.Event</class>
+		<class>ch.bzz.m426.jpa.Reservation</class>
 		<properties>
 			<property name="eclipselink.logging.level" value="FINE" />
 			<property name="eclipselink.logging.level.sql" value="FINE" />

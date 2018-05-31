@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core"
 >
 <h:head>
 	<title>
@@ -9,6 +10,27 @@
 	</title>
 </h:head>
 <h:body>
-    <h1>RichClients Applikation</h1>
+	<h1>RichClients</h1>
 </h:body>
+
+<p:dataTable id="event" value="#{eventBean.eventList}" var="event" style="margin-bottom: 20px;">
+
+	<f:facet name="header">
+		EventTable - Demo
+	</f:facet>
+
+	<p:column headerText="Title" sortBy="#{event.title}">
+		<h:outputText value="#{event.title}"/>
+	</p:column>
+
+	<p:column headerText="Description">
+		<h:outputText value="#{event.description}"/>
+	</p:column>
+
+	<p:column headerText="Organiser">
+		<h:outputText value="#{event.organiser}"/>
+	</p:column>
+
+</p:dataTable>
+
 </html>
